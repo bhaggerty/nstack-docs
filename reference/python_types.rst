@@ -18,7 +18,7 @@ Sum            see section below
 ``x optional`` ``None`` or x              
 ============== ============================
 
-\* you can return a normal tuple (see struct section below)
+`\*you can return a normal tuple (see Structs section below)`
 
 Sum Types
 ---------
