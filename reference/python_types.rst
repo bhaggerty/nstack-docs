@@ -1,5 +1,5 @@
 Mapping NStack types to Python types
-------------------------------------
+====================================
 
 The table below show you what python types to expect and to return when dealing with types defined in the NStack IDL:
 
