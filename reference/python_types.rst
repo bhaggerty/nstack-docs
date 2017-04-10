@@ -47,7 +47,7 @@ As the sum is defined as a type alias (this is the only way to define sums in th
 
   import nstack
   ex_impression = nstack.Event.PageImpression("http://www.nstack.com/")
-  ex_click = nstack.Event.PageImpression(("http://www.nstack.com/", "http://demo.nstack.com/"))
+  ex_click = nstack.Event.Click(("http://www.nstack.com/", "http://demo.nstack.com/"))
 
 And we can see the class inheritance by asking python about the instances' types::
 
