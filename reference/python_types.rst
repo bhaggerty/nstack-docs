@@ -23,7 +23,7 @@ Sum            see section below
 Sum Types
 ---------
 
-Python doesn't have support for Sum types (or tagged/disjoint unions) but we still support them via inheritance.
+Python doesn't have support for Sum types (aka tagged/disjoint unions) but we still support them via inheritance.
 
 Here's some example definitions of type in the nstack IDL::
 
