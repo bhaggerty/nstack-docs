@@ -7,51 +7,72 @@ NStack is built to integrate with existing infrastructure, event, and data-sourc
 
 .. seealso:: Learn more about *sources* and *sinks* in :ref:`Concepts<concepts>` 
 
-**Sources**
- - Postgres ::
+Sources
+^^^^^^^
+
+Postgres
+-------
+
+::
 
     Sources.postgres<Text> {
       pg_host = "localhost", pg_port = "5432",
       pg_user = "user", pg_password = "123456",
       pg_database = "db", pg_query = "SELECT * FROM tbl;" }
 
-   ``pg_port`` defaults to 5432, ``pg_user`` defaults to ``postgres``, and
-   ``pg_password`` defaults to the empty string. The other parameters are mandatory.
+``pg_port`` defaults to 5432, ``pg_user`` defaults to ``postgres``, and
+``pg_password`` defaults to the empty string. The other parameters are mandatory.
 
- - HTTP ::
+HTTP
+----
+
+::
 
     Sources.http<Text> { http_path = "/foo" }
 
- - RabbitMQ (AMQP) ::
+RabbitMQ (AMQP)
+--------------
 
+::
+ 
     Sources.amqp<Text> {
       amqp_host = "localhost", amqp_port = "5672",
       amqp_vhost = "/", amqp_exchange = "ex",
       amqp_key = "key"
     }
 
-   ``amqp_port`` defaults to 5672 and ``amqp_vhost`` defaults to ``/``.
-   The other parameters are mandatory.
+``amqp_port`` defaults to 5672 and ``amqp_vhost`` defaults to ``/``.
+The other parameters are mandatory.
 
-**Sinks**
- - Postgres ::
+Sinks
+^^^^^
+
+Postgres
+-------
+
+::
 
     Sinks.postgres<Text> {
       pg_host = "localhost", pg_port = "5432",
       pg_user = "user", pg_password = "123456",
       pg_database = "db", pg_table = "tbl" }
 
-   Like for Postgres source,
-   ``pg_port`` defaults to 5432, ``pg_user`` defaults to ``postgres``, and
-   ``pg_password`` defaults to the empty string. The other parameters are mandatory.
+Like for Postgres source,
+``pg_port`` defaults to 5432, ``pg_user`` defaults to ``postgres``, and
+``pg_password`` defaults to the empty string. The other parameters are mandatory.
 
- - NStack Log ::
+NStack Log 
+---------
+::
 
     Sinks.log<Text>
 
-   The Log sink takes no parameters.
+The Log sink takes no parameters.
 
- - RabbitMQ (AMQP) ::
+RabbitMQ (AMQP)
+---------------
+
+::
 
     Sinks.amqp<Text> {
       amqp_host = "localhost", amqp_port = "5672",
@@ -59,16 +80,6 @@ NStack is built to integrate with existing infrastructure, event, and data-sourc
       amqp_key = "key"
     }
 
-   Like for AMQP source,
-   ``amqp_port`` defaults to 5672 and ``amqp_vhost`` defaults to ``/``.
-   The other parameters are mandatory.
-
- - Firebase ::
-
-    Sinks.firebase<Text> {
-      firebase_host = "localhost",
-      firebase_port = "111",
-      firebase_path = "..."
-    }
-
-   All parameters are mandatory.
+Like for AMQP source,
+``amqp_port`` defaults to 5672 and ``amqp_vhost`` defaults to ``/``.
+The other parameters are mandatory.

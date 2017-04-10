@@ -3,6 +3,9 @@
 Workflow Language
 =================
 
+Overview
+--------
+
 A module consists of a module header, import statements, and definitions,
 for instance: ::
 
@@ -26,56 +29,74 @@ any other module: ::
 If a name is not prefixed by a module alias, it refers to a function defined in
 the current module.
 
+Expressions
+-----------
+
 Expressions combine already defined functions through the following operations:
 
-* Pipe: ``A.y | A.z``
+Pipe
+^^^^^
+``A.y | A.z``
 
   Every value produced by ``A.y`` is passed to ``A.z``.
 
   The output type of ``A.y`` must match the input type of ``A.z``.
 
-* Concat: ``concat A.y`` or ``A.y*``
-
+Concat 
+^^^^^^
+``concat A.y`` or ``A.y*``
+  
   ``A.y`` must be a function that produces lists of values,
   in which case ``concat A.y`` is a function that "unpacks" the lists
   and yields the same values one by one.
 
-* Filter: ``filter A.y`` or ``A.y?``
+Filter
+^^^^^^
+``filter A.y`` or ``A.y?``
 
   ``A.y`` must be a function that produces "optional" (potentially missing) values,
   in which case ``filter A.y`` is a function that filters out missing values.
 
-* Type application. Some functions (notably, most sources and sinks) can be specialized
-  to multiple input or output types.
-  This is done with type application: ``Sources.http<Text>`` specializes
-  ``Sources.http`` to the type ``Text``.
+Type application 
+^^^^^^^^^^^^^^^^
+``Sources.A<T>``
 
-* Parameter application: ``A.y { one = "...", two = "..." }``.
+Some functions (notably, most sources and sinks) can be specialized
+to multiple input or output types.
+This is done with type application: ``Sources.http<Text>`` specializes
+``Sources.http`` to the type ``Text``.
 
-  Parameters are analogous to UNIX environment variables in the following ways:
+Parameter application
+^^^^^^^^^^^^^^^^^^^^^
+``A.y { one = "...", two = "..." }``.
 
-  1. Parameters are inherited. E.g. in ::
+Parameters are analogous to UNIX environment variables in the following ways:
 
-      y = x;
-      z = y { foo = "bar" };
+1. Parameters are inherited. E.g. in ::
 
-    both functions ``x`` and ``y`` will have access to ``foo`` when ``z`` is
-    called.
+    y = x;
+    z = y { foo = "bar" };
 
-  2. Parameters can be overridden. E.g. in ::
+  both functions ``x`` and ``y`` will have access to ``foo`` when ``z`` is
+  called.
+
+2. Parameters can be overridden. E.g. in ::
 
       y = x { foo = "baz" };
       z = y { foo = "bar" };
 
-    ``y`` overrides the value of ``foo`` that is passed to ``x``.
-    Therefore, ``x`` will see the value of ``foo`` as ``baz``, not ``bar``.
+  ``y`` overrides the value of ``foo`` that is passed to ``x``.
+  Therefore, ``x`` will see the value of ``foo`` as ``baz``, not ``bar``.
 
-  Parameters are used to configure sources and sinks —
-  for instance, to specify how to connect to a PostgreSQL database.
+Parameters are used to configure sources and sinks —
+for instance, to specify how to connect to a PostgreSQL database.
 
-  Parameters can also be used to configure user-defined modules.
-  Inside a Python nstack method, the value of parameter ``foo`` can be accessed as
-  ``self.args["foo"]``.
+Parameters can also be used to configure user-defined modules.
+Inside a Python nstack method, the value of parameter ``foo`` can be accessed as
+``self.args["foo"]``.
+
+Comments 
+^^^^^^^^
 
 The workflow language supports line and block comments.
 Line comments start with ``//`` and extend until the end of line.
