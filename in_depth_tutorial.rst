@@ -1,7 +1,12 @@
-.. _more:
+.. _in_depth_tutorial
 
-Productionising a Classifier as an NStack Module
+
+In-Depth Tutorial - Productionising a Classifier
 ================================================
+
+In this section, we're going to productionise a Random Forest classifier written with `sklearn <http://scikit-learn.org/>`_, deploy it to the cloud, and use it in a more sophisticated workflow. 
+
+By the end of the tutorial, you will learn how to build modules with dependencies, write more sophisticated workflows, and build abstractions over data-sources. Enjoy!
 
 So far, we have built and published a Python module with a single function on it, ``numChars``, and built a workflow which connects our function to an HTTP endpoint. This in itself isn't particularly useful, so, now that you've got the gist of how NStack works, it's time to build something more realistic!
 
@@ -158,14 +163,10 @@ In this instance, it is running as process ``2``. We can test our classifier by 
 
 .. code :: bash
 
-   ~/Iris.Classify/ $ curl -X PUT -d '{ "params" : [4.7, 1.4, 6.1, 2.9] }' localhost:8080/irisendpoint 
-   Msg Accepted
+   ~/Iris.Classify/ $ nstack send "/irisendpoint" '[4.7, 1.4, 6.1, 2.9]'
+   Message Accepted
    ~/Iris.Classify/ $ nstack log 2  
    Feb 17 10:32:30 nostromo nstack-server[8925]: OUTPUT: "Iris-versicolor"
 
-Our classifier is now productionised. Next, we're going explore some of the more sophisticated workflows you can build using NStack.
- 
-
-
-
+Our classifier is now productionised.
 

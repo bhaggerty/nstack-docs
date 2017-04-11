@@ -5,7 +5,8 @@ Reference
 ******************
 
 .. toctree::
-   
+   :maxdepth: 2
+
    nstack_toolkit
    module_structure
    supported_types

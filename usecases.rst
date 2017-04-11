@@ -1,7 +1,7 @@
 .. _usecases
 
-What do people use NStack for?
-==============================
+NStack Uses
+===========
 
 Productionising Models
 **********************
@@ -9,7 +9,7 @@ Productionise your models in the cloud without complex engineering, where they c
 
 
 Data Integration
-***************
+****************
 
 Transform disparate and disconnected data-sources -- such as 3rd-party APIs, legacy infrastructure, or databases into streams of typed, structured records -- which can be composed together. For instance, you could set up a workflow in the cloud which pipes the Twitter Ads API into your data-lake (and even do some modelling in Python in-transit) in under 5 minutes.
 

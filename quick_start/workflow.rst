@@ -116,12 +116,12 @@ To start our workflow in the cloud, we use the start command:
 
 We now have a live HTTP endpoint on ``localhost:8080/demo``. The HTTP endpoint is configured to accept JSON-encoded values. We defined it to use an input schema of ``Text``, so we will be able to send it any JSON ``string``. In our JSON, we put ``params`` as the key, and our input as the value:
 
-We can call it using ``curl``:
+We can call it using ``nstack send``:
 
 .. code:: bash
 
- ~/DemoWorkflow/ $ curl -X PUT -d '{ "params" : "Foo" }' localhost:8080/demo 
- Msg Accepted
+ ~/DemoWorkflow/ $ nstack send "/demo" '"Foo"'
+ > Message Accepted
 
 When workflows are started, they become *processes* which have numerical identifiers (_ids_). We can see the id of our process by running:
 

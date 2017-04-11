@@ -29,7 +29,7 @@ Sample ``nstack.yaml`` file:
     stack: python
 
     # Parent Image
-    parent: NStack.Python:0.24.0
+    parent: NStack.Python:0.25.0
 
     api: |
       numChars : Text -> Integer

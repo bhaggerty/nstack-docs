@@ -67,7 +67,7 @@ In ``service.py``, there is a ``Service`` class. This is where we write the func
   stack: python
 
   # Parent Image
-  parent: NStack.Python:0.24.0
+  parent: NStack.Python:0.25.0
 
   api: |
     numChars : Text -> Integer
@@ -100,15 +100,5 @@ We can check that our ``numChars`` function is live by running the suggested ``n
     numChars : Text -> Integer
 
 That's it! Our ``numChars`` function is live in the cloud, and is ready to be connected to input and output data streams, which the next tutorial will cover.
-
-Advanced: Framework Modules
----------------------------
-
-You may want to create a common parent module that has lots of complex dependencies already installed, either to save time or for standardisation. NStack supports this with _Framework Modules_. Simply create a new module similar to above, `nstack init framework [parent]`, and modify the resulting `nstack.yaml` as needed.
-
-You can then build this module using `nstack build`, and refer to it within your future modules within the `parent` field of their `nstack.yaml` config file.
-
-
-
 
 

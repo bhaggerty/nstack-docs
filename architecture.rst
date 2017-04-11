@@ -34,6 +34,6 @@ NStack is built using best-of-class technologies, such as:
 Diagrams
 ********
 
-.. image:: arch.png
+.. image:: resources/arch.png
 
-.. image:: arch2.png
+.. image:: resources/arch2.png
