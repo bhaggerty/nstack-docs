@@ -12,15 +12,24 @@ Example
 .. code:: fsharp
 
   module Demo:0.1.0 {
-    import NStack.Transforms:0.1.4 as T
-    import Acme.Classifier:0.3.0 as C
+    import NStack.Transformers:0.1.4 as T;
+    import Acme.Classifiers:0.3.0 as C;
 
     // our analytics workflow
-    def workflow = Source.postgresql<(Int, Int)> 
-                   | T.transform
-                   | C.classify
-                   | Sink.s3blob<Text>
+    def workflow = Sources.Postgresql<(Int, Int, Text, CustomerRecord)> 
+                   | T.transform { strength = 5 }
+                   | C.classify { model = "RandomForest" }
+                   | Sinks.S3blob<Text>;
   }
+
+
+
+Intro Screencast
+^^^^^^^^^^^^^^^^
+
+.. raw:: html
+
+    <script type="text/javascript" src="https://asciinema.org/a/112733.js" id="asciicast-112733" async></script>
 
 
 .. _module:
