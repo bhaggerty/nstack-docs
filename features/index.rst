@@ -45,7 +45,7 @@ For instance, we could combine ``Iris.Classify.predict`` and ``demo.numChars`` f
     import Iris.Classify:0.0.1-SNAPSHOT as Classifier;
     import Demo:0.0.1-SNAPSHOT as Demo;
 
-    def speciesLength = Classifier.predict | Demo.numChars
+    def speciesLength = Classifier.predict | Demo.numChars;
   } 
 
 Because our workflow ``Iris.Workflow.speciesLength`` has not been connected to a source or a sink, it in itself is still a function. If we build this workflow, we can see ``speciesLength`` alongside our other functions by using the ``list`` command:
@@ -66,7 +66,7 @@ As we would expect, the input type of the workflow is the input type of ``Iris.C
 
   module Iris.Endpoint:0.0.1-SNAPSHOT {
     import Iris.Workflow:0.0.1-SNAPSHOT as IrisWF;
-    def http = Sources.http<(Double, Double, Double, Double) | IrisWF.speciesLength | Sinks.log<Integer>;
+    def http = Sources.http<(Double, Double, Double, Double)> | IrisWF.speciesLength | Sinks.log<Integer>;
   } 
 
 Often times you want to re-use a source or a sink without reconfiguring them. To do this, we can similarly separate the sources and sinks into separate workflows, like so:
@@ -74,10 +74,10 @@ Often times you want to re-use a source or a sink without reconfiguring them. To
 .. code :: java
   
   module Iris.Workflow:0.0.1-SNAPSHOT {
-    import Iris.Classify:0.0.1-SNAPSHOT as Classifier
+    import Iris.Classify:0.0.1-SNAPSHOT as Classifier;
 
     def httpEndpoint = sources.http<(Double, Double, Double, Double)> { http_path = "speciesLength" };
-    def logSink = sinks.log<Text>
+    def logSink = sinks.log<Text>;
 
     def speciesWf = httpEndpoint | Classifier.predict | logSink;
   }
