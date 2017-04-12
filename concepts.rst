@@ -8,18 +8,19 @@ Example
 
 .. image:: resources/readme-flowchart-example.svg
 
+We can express this within the NStack scripting language locally as follows (it can help to think of it akin to Bash-style piping for microservices),
 
 .. code:: fsharp
 
   module Demo:0.1.0 {
-    import NStack.Transformers:0.1.4 as T;
-    import Acme.Classifiers:0.3.0 as C;
+    import NStack.Transformers:0.1.4 as T
+    import Acme.Classifiers:0.3.0 as C
 
     // our analytics workflow
-    def workflow = Sources.Postgresql<(Int, Int, Text, CustomerRecord)> 
+    def workflow = Sources.Postgresql<(Text, Int)> 
                    | T.transform { strength = 5 }
                    | C.classify { model = "RandomForest" }
-                   | Sinks.S3blob<Text>;
+                   | Sinks.S3blob<Text>
   }
 
 
