@@ -1,4 +1,4 @@
-.. _creating_structure:
+.. _creating-structure:
 
 Module Structure
 =========================
@@ -11,7 +11,7 @@ The following files are created when you create an nstack module using:
 
     $ nstack init <stack>
 
-.. _creating_structure_yaml:
+.. _creating-structure-yaml:
 
 nstack.yaml 
 -------

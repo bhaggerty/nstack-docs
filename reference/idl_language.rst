@@ -1,4 +1,4 @@
-.. _idl_language:
+.. _idl-language:
 
 IDL Language
 ============

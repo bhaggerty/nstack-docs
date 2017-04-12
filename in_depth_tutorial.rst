@@ -1,4 +1,4 @@
-.. _in_depth_tutorial
+.. _in-depth-tutorial:
 
 
 In-Depth Tutorial - Productionising a Classifier

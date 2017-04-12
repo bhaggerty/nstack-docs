@@ -1,4 +1,4 @@
-.. _workflow_language:
+.. _workflow-language:
 
 Workflow Language
 =================

@@ -1,4 +1,4 @@
-.. _supported_integrations:
+.. _supported-integrations:
 
 Supported Integrations
 ======================

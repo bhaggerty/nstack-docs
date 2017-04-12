@@ -1,4 +1,4 @@
-.. _quick_start_index:
+.. _quick-start-index:
 
 ******************
 Quick Tutorial

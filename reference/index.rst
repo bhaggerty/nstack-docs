@@ -1,4 +1,4 @@
-.. _reference_index:
+.. _reference-index:
 
 ******************
 Reference

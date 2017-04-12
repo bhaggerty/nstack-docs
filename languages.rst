@@ -1,4 +1,4 @@
-.. _languages
+.. _languages:
 
 
 Supported Languages

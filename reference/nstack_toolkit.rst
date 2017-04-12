@@ -1,4 +1,4 @@
-.. _nstack_cli:
+.. _nstack-cli:
 
 nstack CLI
 ==========

@@ -1,4 +1,4 @@
-.. _supported_types:
+.. _supported-types:
 
 Supported Types
 ===============

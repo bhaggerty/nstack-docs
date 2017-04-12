@@ -39,7 +39,7 @@ Modules
 
 A *module* is a piece of code that has been deployed to NStack, either by you or someone else. It has an input schema and an output schema, which defines what kind of data it can receive, and the kind of data that it returns.
 
-.. _sink_source:
+.. _sink-source:
 
 Sources & Sinks
 ---------------

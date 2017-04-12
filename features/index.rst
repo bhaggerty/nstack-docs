@@ -1,16 +1,16 @@
-.. _features
+.. _features:
 
 Features
 ========
 
 In this section, we're going to describe some of the more advanced features you can do with NStack when building your modules and composing them together to build workflows.
 
-.. _features_composition
+.. _features-composition:
 
 Composition
 -----------
 
-Workflows can contain as many steps as you like, as long as the output type of one matches the input type of the other. For instance, let's say we wanted to create the following workflow based on the Iris example in :ref:`in_depth_tutorial` and available on `GitHub <https://github.com/nstack/nstack-examples/tree/master/iris>`_
+Workflows can contain as many steps as you like, as long as the output type of one matches the input type of the other. For instance, let's say we wanted to create the following workflow based on the Iris example in :ref:`in-depth-tutorial` and available on `GitHub <https://github.com/nstack/nstack-examples/tree/master/iris>`_
 
 - Expose an HTTP endpoint which takes four ``Double``\s
 - Send these ``Double``\s to our classifier, ``Iris.Classify``, which will tell us the species of the iris
@@ -30,7 +30,7 @@ We could write the following workflow:
 
 .. note :: ``numChars`` and ``predict`` can be `composed` together because their types -- or schemas -- match. If ``predict`` wasn't configured to output ``Text``, or ``numChars`` wasn't configured to take ``Text`` as input, NStack would not let you build the following workflow.
 
-.. _features_reuse
+.. _features-reuse:
 
 Workflow Reuse
 --------------
@@ -119,7 +119,7 @@ Because ``roundedPetalsSource`` is a combination of a source and a function, it 
 Because NStack functions, source, and sinks can be composed and reused, this lets you build powerful abstractions over infrastructure.
 
 
-.. _features_versioning
+.. _features-versioning:
 
 Versioning
 ----------
@@ -139,7 +139,7 @@ The ``SNAPSHOT`` tag tells NStack to allow you to override it every time you bui
 This is helpful for development, as you do not need to constantly increase the version number. 
 When you deem your module is ready for release, you can remove ``SNAPSHOT`` and NStack will create an immutable version of ``0.0.1``.
 
-.. _features_configuration
+.. _features-configuration:
 
 Configuration
 -------------
@@ -173,7 +173,7 @@ For instance, in Python you can access configuration parameters in the following
         return full_name
 
 
-.. _features_framework
+.. _features-framework:
 
 
 Framework Modules
