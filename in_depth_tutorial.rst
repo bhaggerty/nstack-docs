@@ -147,8 +147,8 @@ Our classifier is now published, but to use it we need to connect it to an event
 .. code :: bash
    
     ~/Iris.Classify/ $ nstack notebook
-    import Iris.Classify:0.0.1-SNAPSHOT as Classifier
-    Sources.http<(Double, Double, Double, Double) | Classifier.predict | Sinks.log<Text>
+    import Iris.Classify:0.0.1-SNAPSHOT as Classifier;
+    Sources.http<(Double, Double, Double, Double)> | Classifier.predict | Sinks.log<Text>
     [Ctrl-D]
 
 This creates an HTTP endpoint on ``http://localhost:8080/irisendpoint`` which can receive four ``Double``\s, and writes the results to the log as ``Text``. Let's check it is running as a process:
