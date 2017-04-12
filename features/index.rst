@@ -25,7 +25,7 @@ We could write the following workflow:
     import Iris.Classify:0.0.1-SNAPSHOT as Classifier;
     import Demo:0.0.1-SNAPSHOT as Demo;
 
-    def multipleSteps = Sources.http<(Double, Double, Double, Double> { http_path = "/irisendpoint" } | Classifier.predict | Demo.numChars | sinks.log<Integer>;
+    def multipleSteps = Sources.http<(Double, Double, Double, Double)> { http_path = "/irisendpoint" } | Classifier.predict | Demo.numChars | sinks.log<Integer>;
   }
 
 .. note :: ``numChars`` and ``predict`` can be `composed` together because their types -- or schemas -- match. If ``predict`` wasn't configured to output ``Text``, or ``numChars`` wasn't configured to take ``Text`` as input, NStack would not let you build the following workflow.
