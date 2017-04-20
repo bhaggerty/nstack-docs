@@ -158,4 +158,74 @@ Firebase
       firebase_path = "..."
     }
 
+All parameters are mandatory.
 
+
+Conversions
+^^^^^^^^^^^
+
+
+JSON
+----
+
+::
+
+  Conv.from_json<(Integer,Boolean)>
+  Conv.to_json<(Integer,Boolean)>
+
+These functions convert between nstack values and ``Text`` values
+containing JSON. They have types ::
+
+  Conv.from_json<type> : Text -> type
+  Conv.to_json<type>   : type -> Text
+
+Supported types are:
+
+  * ``Integer``
+  * ``Double``
+  * ``Boolean``
+  * ``Text``
+  * ``[Byte]``
+  * Arrays of supported types
+  * Tuples of supported types
+  * Structs of supported types
+
+CSV
+---
+
+::
+
+    Conv.from_csv<(Integer,Boolean)>
+    Conv.to_csv<(Integer,Boolean)>
+
+These functions convert between nstack values and ``Text`` values
+containing comma-separated fields. They have types ::
+
+  Conv.from_csv<type> : Text -> type
+  Conv.to_csv<type>   : type -> Text
+
+Supported field types are:
+
+  * ``Integer``
+  * ``Double``
+  * ``Boolean`` (encoded as ``TRUE`` or ``FALSE``)
+  * ``Text``
+  * ``[Byte]``
+  * Optional of another supported field type
+
+Supported row types are:
+
+  * Arrays of supported field types
+  * Tuples of supported field types
+  * Structs of supported field types
+
+If the row type is a struct,
+then the first emitted or consumed value is the CSV header.
+The column names in the header correspond to
+the field names of the struct.
+
+If the row type is an array or a tuple,
+no header is expected or produced.
+
+Text values produced by ``to_csv`` are not newline-terminated.
+Text values consumed by ``from_csv`` may or may not be newline-terminated.
