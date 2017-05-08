@@ -40,33 +40,26 @@ Let's create a new directory called ``DemoWorkflow``, ``cd`` into the directory,
 
 .. note :: Just like Python modules, workflow modules are versioned.
 
-.. code :: java
+::
 
- module DemoWorkflow:0.0.1-SNAPSHOT {
-   import Python.Hello:0.0.1 as Hello;
-   // A sample workflow
-   def w = Sources.http<Text> { http_path = "/demo" } | Hello.numChars | Sinks.log<Integer>;
- }
+ module DemoWorkflow:0.0.1-SNAPSHOT
 
-This currently has a single workflow on it, ``w``, which uses a function imported from a module called ``Python.Hello`` with the version number of ``0.0.1``.
+ import Demo.NumChars:0.0.1-SNAPSHOT as D
+
+ // A sample workflow
+ def w = Sources.http<Text> { http_path = "/demo" } | D.numChars | Sinks.log<Integer>
+
+This currently has a single workflow on it, ``w``, which uses a function imported from a module called ``Demo.NumChars`` with the version number of ``0.0.1``.
 Like the workflow we will create, this example workflow creates an HTTP endpoint which pipes data to a function, and pipes data from the function to the NStack log.
 
+.. note ::
+  There is no need to create a separate module in order to define a
+  workflow. You could have included the definition of ``w`` in the
+  ``workflow.nml`` of the original Python module ``Demo.NumChars``.
+  In that case, you would not need to prefix ``numChars`` with ``D.``,
+  as it is defined in the same module.
+
 When we created our Python module, we defined the input and output types of our function in our API. On NStack, sources and sinks also have types: this workflow specifies that the HTTP source only receives and passes on ``Text``, and the log only accepts ``Integer``\s. Because our Python function takes ``Text``, counts it, and returns ``Integer``\s, that means it can fit in the middle of the workflow.
-
-Writing our workflow
---------------------
-
-First, let's change the import statement to import our *Demo* module instead of *Python.Hello*.
-
-.. code :: java
-
- import Demo:0.0.1-SNAPSHOT as Demo;
-
-Now, let's change our workflow to use the ``numChars`` function on ``Demo``, instead of the one on ``Python.Hello``. 
-
-.. code:: java
-
-  def w = Sources.http<Text> { http_path = "/demo" } | Demo.numChars | Sinks.log<Integer>;
 
 .. note :: The http source is configured in this example to expose an endpoint on ``/demo``. If you are using the demo server, we would recommend changing ``/demo`` to something more unique -- as someone else may have already taken that endpoint.
 
